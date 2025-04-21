@@ -18,7 +18,6 @@ html_title = 'InvenTree Project Documentation'
 extensions = [
      'sphinxext.opengraph',
      "myst_parser",
-     'sphinxcontrib.mermaid'
 ]
 
 templates_path = ['_templates']
