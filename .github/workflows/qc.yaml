@@ -1,0 +1,66 @@
+# Checks for each PR / push
+
+name: QC
+
+on: [push, pull_request]
+permissions:
+  contents: read
+
+jobs:
+    style:
+        name: Style
+        runs-on: ubuntu-24.04
+        steps:
+        - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # pin@v4.2.2
+          with:
+            persist-credentials: false
+        - name: Run pre-commit Checks
+          uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # pin@v3.0.1
+    build:
+        name: Build docs
+        runs-on: ubuntu-24.04
+        steps:
+        - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # pin@v4.2.2
+          with:
+            persist-credentials: false
+        - name: Install uv
+          uses: astral-sh/setup-uv@v5
+        - name: "Set up Python"
+          uses: actions/setup-python@v5
+          with:
+            python-version-file: ".python-version"
+
+        - name: Install the project
+          run: uv sync --all-extras --dev
+
+        - name: Build docs
+          run: uv run sphinx-build -M html docs build
+        - name: Publish docs to Artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: docs
+            path: build/html
+
+    publish:
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        needs: [ "build", "style" ]
+        name: Publish docs
+        runs-on: ubuntu-24.04
+        permissions:
+          pages: write
+        steps:
+        - name: Download docs from Artifacts
+          uses: actions/download-artifact@v4
+          with:
+            name: docs
+            path: build/html
+        - name: Setup Pages
+          uses: actions/configure-pages@v5
+        - name: Upload artifact
+          uses: actions/upload-pages-artifact@v3
+          with:
+              # Upload entire repository
+              path: 'build/html'
+        - name: Deploy to GitHub Pages
+          id: deployment
+          uses: actions/deploy-pages@v4
