@@ -1,0 +1,17 @@
+[project]
+name = "inventree-project"
+version = "0.1.0"
+description = "InvenTree project wide docs and tools"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "furo>=2024.8.6",
+    "myst-parser>=4.0.1",
+    "sphinx>=8.2.3",
+    "sphinxext-opengraph>=0.10.0",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.2.0",
+]
