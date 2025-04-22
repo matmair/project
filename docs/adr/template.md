@@ -1,13 +1,16 @@
 ---
-number: {number of the ADR, e.g., 0001}
+ADR: {number of the ADR, e.g., 0001}
 author: {reference to the author, e.g., GitHub user name}
 status: "{proposed | rejected | accepted | deprecated | … | superseded by ADR-0123"
 created: {YYYY-MM-DD when the decision was made}
+decided: {YYYY-MM-DD when the decision was made}
 date: {YYYY-MM-DD when the decision was last updated}
 type: "{type of the decision, e.g., architecture | design | code | governance | ecosystem | …}"
 ---
 
 # {short title, representative of solved problem and found solution}
+
+{adr}`-`
 
 ## Context and Problem Statement
 
@@ -72,3 +75,8 @@ Chosen option: "{title of option 1}", because {justification. e.g., only option,
 ## More Information
 
 {You might want to provide additional evidence/confidence for the decision outcome here and/or document the team agreement on the decision and/or define when/how this decision the decision should be realized and if/when it should be re-visited. Links to other decisions and resources might appear here as well.}
+
+<!-- This is an optional element. Feel free to remove. -->
+## Change Log
+
+{You might want to provide a change log here. This is not mandatory, but it might be useful to track changes in the decision.}
