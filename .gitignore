@@ -1,2 +1,5 @@
 # Static site build
 build/
+
+# ignore cache files
+__pycache__/

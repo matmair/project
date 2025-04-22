@@ -1,3 +1,7 @@
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path("_ext").resolve()))
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -18,6 +22,7 @@ html_title = "InvenTree Project Documentation"
 extensions = [
     "sphinxext.opengraph",
     "myst_parser",
+    "adr_block",
 ]
 
 templates_path = ["_templates"]

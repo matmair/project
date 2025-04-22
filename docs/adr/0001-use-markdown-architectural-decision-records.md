@@ -7,7 +7,10 @@ decided: "2025-04-21"
 date: "2025-04-21"
 type: "governance"
 ---
+
 # Use Markdown Architectural Decision Records
+
+{adr}`-`
 
 ## Context and Problem Statement
 
@@ -43,7 +46,7 @@ In the header of the file should be frontmatter with the following fields.
 
 | Name    | Options | Description |
 | -------- | ------- | ----------- |
-| ADR  | number of the ADR, e.g., 0001 | The number of the ADR. This should be a unique number for each ADR. |
+| ADR  | number of the {term}`ADR`s, e.g., 0001 | The number of the ADR. This should be a unique number for each ADR. |
 | author  | GitHub user name | The author of the ADR. This should be a reference to the author, e.g., the name and GitHub user name. |
 | status  | proposed, rejected, accepted, deprecated, superseded by ADR-*** | The status of the ADR. See the details [below](#status-lifecycle) |
 | created | YYYY-MM-DD | The date when the ADR was proposed. This should be in ISO 8601 format |
