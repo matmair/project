@@ -1,5 +1,5 @@
 ---
-number: {number of the ADR, e.g., 0001}
+ADR: {number of the ADR, e.g., 0001}
 author: {reference to the author, e.g., GitHub user name}
 status: "{proposed | rejected | accepted | deprecated | … | superseded by ADR-0123"
 created: {YYYY-MM-DD when the decision was made}
